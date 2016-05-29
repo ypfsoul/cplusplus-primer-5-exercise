@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ypf/github/cplusplus-primer-5-exercise/chapter10-GenericAlgorithm/Test.cpp
+algorithm
+-
+iostream
+-
+list
+-
+numeric
+-
+stdlib.h
+-
+vector
+-
+

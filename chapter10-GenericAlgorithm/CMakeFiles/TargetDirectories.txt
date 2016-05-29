@@ -1,0 +1,3 @@
+/home/ypf/github/cplusplus-primer-5-exercise/chapter10-GenericAlgorithm/CMakeFiles/rebuild_cache.dir
+/home/ypf/github/cplusplus-primer-5-exercise/chapter10-GenericAlgorithm/CMakeFiles/edit_cache.dir
+/home/ypf/github/cplusplus-primer-5-exercise/chapter10-GenericAlgorithm/CMakeFiles/main.dir
