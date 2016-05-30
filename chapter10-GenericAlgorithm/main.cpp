@@ -56,7 +56,6 @@ bool isShorter(const string& str1, const string& str2)
 
 
 
-
 // ===  FUNCTION  ======================================================================
 //         Name:  biggies
 //  Description:  select string who's size > x
@@ -73,7 +72,6 @@ void biggies(vector<string>& words, vector<string>::size_type sz)
     }
 }
 // -----  end of function biggies  -----
-
 
 
 
