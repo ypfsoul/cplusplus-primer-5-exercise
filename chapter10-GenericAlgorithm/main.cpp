@@ -14,15 +14,15 @@
 //
 // =====================================================================================
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <list>
 #include <numeric>
 #include <stdlib.h>
 #include <vector>
 
-
 using namespace std;
-
+using namespace std::placeholders;
 
 // ===  FUNCTION  ======================================================================
 //         Name:  elimDups
@@ -55,6 +55,15 @@ bool isShorter(const string& str1, const string& str2)
 
 
 
+// ===  FUNCTION  ======================================================================
+//         Name:  islonger
+//  Description:
+// =====================================================================================
+bool isLonger(const string& str, vector<string>::size_type sz)
+{
+    return str.size() > sz;
+}
+// -----  end of function islonger  -----
 
 // ===  FUNCTION  ======================================================================
 //         Name:  biggies
@@ -64,8 +73,13 @@ void biggies(vector<string>& words, vector<string>::size_type sz)
 {
     elimDups(words);
     stable_sort(words.begin(), words.end(), isShorter);
-    //获取第一个大于给定sz的迭代器(find_if第三个参数只支持一元谓词，但是这里需要额外的sz变量，所以用lamda表达式实现)
-    auto result = find_if(words.cbegin(), words.cend(), [sz](const string& str) -> bool { return str.size() > sz; });
+    //获取第一个大于给定sz的迭代器(find_if第三个参数只支持一元谓词，但是这里需要额外的sz变量，有两个方案
+    //1.用lamda表达式实现,通过捕获列表传入额外参数
+    //auto result = find_if(words.cbegin(), words.cend(), [sz](const string& str) -> bool { return str.size() > sz; });
+
+    //2.用bind包装函数变成一元谓词
+    auto result = find_if(words.cbegin(), words.cend(), bind(isLonger, _1, sz));
+
     if (result != words.cbegin())
     {
         words.erase(words.begin(), result - 1);
